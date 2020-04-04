@@ -1,20 +1,29 @@
 'use strict'; //Strengen Modus//
 
 
-window.onload = function() {
-        if (localStorage.getItem("currentMode") == "dark") {
-                darkMode();
-        } else if (localStorage.getItem("currentMode") == "bright") {
-                brightMode();
-        }
+var cookiesInfo = localStorage.cookiesInfo;
 
-        console.info("Aktueller Anzeigemodus " + localStorage.getItem("currentMode"));
-
-        document.getElementById("last").style.visibility = 'hidden';
-        alert("This site uses cookies to help you keep track of your progress. If you press OK, we can use your data within our company, for more information, read our terms and conditions.");
-        document.getElementById("last").style.visibility = 'visible';
-
-
+window.onload = function() {           
+                if (localStorage.getItem("currentMode") == "dark") { // Überprüfung des aktuellen Modus
+                        darkMode();
+                } else if (localStorage.getItem("currentMode") == "bright") {
+                        brightMode();
+                }
+        
+        
+                if(location.pathname.substring(location.pathname.lastIndexOf("/") + 1)=="about.html"){ // überprüft ob wir auf der about seite sind!!
+                                document.getElementById("wrapper").style.cssText = "width:1500px";
+                }
+        
+                console.info("Aktueller Anzeigemodus " + localStorage.getItem("currentMode"));
+               
+                if(cookiesInfo!="true"){
+                        $("html").css("visibility","hidden");
+                        alert("This site uses cookies to help you keep track of your progress. If you press OK, we can use your data within our company, for more information, read our terms and conditions.");
+                        $("html").css("visibility","visible");
+                        cookies
+                        localStorage.setItem('cookiesInfo', 'true');
+                }
 };
 
 
@@ -38,6 +47,8 @@ function handler() {
         }
 
 }
+
+// Displaying modes
 
 function darkMode() { // mit jQuery
 
@@ -63,8 +74,11 @@ function darkMode() { // mit jQuery
 
         $(".biggercontainer div").css("border", "1px solid #fff");
 
+        $("#test").mouseenter(function(){
+                $(this).animate({backgroundColor:'#ff00ff'},'slow');
+        });
 
-        document.getElementById('last').style.cssText = "background-color: black;color:white;border-left: 1px white solid;border-right: 1px white solid;border-bottom: 1px white solid;";
+
         localStorage.currentMode = 'dark';
         localStorage['currentMode'] = 'dark';
         localStorage.setItem('currentMode', 'dark');
@@ -101,7 +115,6 @@ function brightMode() { // mit jQuery
 
         $(".biggercontainer div").css("border", "1px solid #000");
 
-        document.getElementById('last').style.cssText = "background-color: white;color:black;";
         localStorage.currentMode = 'bright';
         localStorage['currentMode'] = 'bright';
         localStorage.setItem('currentMode', 'bright');
@@ -109,7 +122,7 @@ function brightMode() { // mit jQuery
         console.log("Anzeigemodus " + localStorage.getItem("currentMode") + " wurde gesichert!");
 }
 
-
+// ** Displaying modes **
 
 function showPassword() {
         var x = $("#pass");

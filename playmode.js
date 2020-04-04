@@ -18,6 +18,7 @@
                         checkProgress();       
                 } catch (error) {
                         console.info("buttons cant be set!");
+                        console.info("Progress not checked!");
                 }
 
              }
@@ -76,7 +77,7 @@ function checkProgress(){
                 btnSet();  
         }
 
-              // Als sicherheitsgrundlage!!
+              // Als Integritätsgrundlage!!
         if(localStorage.getItem("progress")=="-1"){
                 localStorage.setItem("progress", "0");
         }      

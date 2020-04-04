@@ -192,11 +192,11 @@ text-decoration: none;
 cursor: pointer;
 }
 
-li a:hover {
+/* li a:hover {
 color: #ffffff;
 transition: all .5s;
 background-color: #000000;
-}
+} */
 
 
 
