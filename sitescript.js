@@ -21,7 +21,6 @@ window.onload = function() {
                         $("html").css("visibility","hidden");
                         alert("This site uses cookies to help you keep track of your progress. If you press OK, we can use your data within our company, for more information, read our terms and conditions.");
                         $("html").css("visibility","visible");
-                        cookies
                         localStorage.setItem('cookiesInfo', 'true');
                 }
 };
@@ -74,8 +73,8 @@ function darkMode() { // mit jQuery
 
         $(".biggercontainer div").css("border", "1px solid #fff");
 
-        $("#test").mouseenter(function(){
-                $(this).animate({backgroundColor:'#ff00ff'},'slow');
+        $("nav ul li a").hover(function() {
+           $(this).toggleClass("darkModeHover");     
         });
 
 
@@ -114,6 +113,12 @@ function brightMode() { // mit jQuery
 
 
         $(".biggercontainer div").css("border", "1px solid #000");
+
+        $("nav a").hover(function() {
+              $(this).toggleClass("brightModeHover");     
+        });
+
+
 
         localStorage.currentMode = 'bright';
         localStorage['currentMode'] = 'bright';

@@ -177,11 +177,11 @@ border-bottom: 2px solid black;
 li img{
 float: left;
 margin-left: 0;
-transition: all .5s;
+transition: all .5s ease;
 }
-li a {
+li a{
 float: left;
-transition: all .5s;
+transition: all .5s ease;
 display: block;
 font-size: 20px;
 color: inherit;
@@ -192,11 +192,18 @@ text-decoration: none;
 cursor: pointer;
 }
 
-/* li a:hover {
-color: #ffffff;
-transition: all .5s;
+
+.darkModeHover{
+background-color: #ffffff;
+color: #000000;
+transition: all .5s ease;
+} 
+
+.brightModeHover{
 background-color: #000000;
-} */
+color: #ffffff;
+transition: all .5s ease;
+} 
 
 
 
