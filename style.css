@@ -179,27 +179,29 @@ float: left;
 margin-left: 0;
 transition: all .5s ease;
 }
+
 li a{
 float: left;
 transition: all .5s ease;
 display: block;
 font-size: 20px;
-color: inherit;
 font-family: 'SFNS Display', sans-serif;
 text-align: center;
 padding: 14px 16px;
 text-decoration: none;
 cursor: pointer;
+color: inherit;
 }
 
 
-.darkModeHover{
+
+.darkMode_hover{
 background-color: #ffffff;
 color: #000000;
 transition: all .5s ease;
 } 
 
-.brightModeHover{
+.brightMode_hover{
 background-color: #000000;
 color: #ffffff;
 transition: all .5s ease;

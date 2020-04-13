@@ -3,26 +3,31 @@
 
 var cookiesInfo = localStorage.cookiesInfo;
 
-window.onload = function() {           
-                if (localStorage.getItem("currentMode") == "dark") { // Überprüfung des aktuellen Modus
-                        darkMode();
-                } else if (localStorage.getItem("currentMode") == "bright") {
-                        brightMode();
-                }
+window.onload = function () {
+        if (localStorage.getItem("currentMode") == "dark") { // Überprüfung des aktuellen Modus
+                darkMode();
+        } else if (localStorage.getItem("currentMode") == "bright") {
+                brightMode();
+        }
+
+
+        if (location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "about.html") { // überprüft ob wir auf der about seite sind!!
+                document.getElementById("wrapper").style.cssText = "width:1500px";
+        }
+
+        console.info("Aktueller Anzeigemodus " + localStorage.getItem("currentMode"));
+
+        if (cookiesInfo != "true") {
+                $("html").css("visibility", "hidden");
+                alert("This site uses cookies to help you keep track of your progress. If you press OK, we can use your data within our company, for more information, read our terms and conditions.");
+                $("html").css("visibility", "visible");
+                localStorage.setItem('cookiesInfo', 'true');
+        }
+
+        console.log(navigator.doNotTrack);
         
-        
-                if(location.pathname.substring(location.pathname.lastIndexOf("/") + 1)=="about.html"){ // überprüft ob wir auf der about seite sind!!
-                                document.getElementById("wrapper").style.cssText = "width:1500px";
-                }
-        
-                console.info("Aktueller Anzeigemodus " + localStorage.getItem("currentMode"));
-               
-                if(cookiesInfo!="true"){
-                        $("html").css("visibility","hidden");
-                        alert("This site uses cookies to help you keep track of your progress. If you press OK, we can use your data within our company, for more information, read our terms and conditions.");
-                        $("html").css("visibility","visible");
-                        localStorage.setItem('cookiesInfo', 'true');
-                }
+
+
 };
 
 
@@ -59,6 +64,7 @@ function darkMode() { // mit jQuery
                 "color": "white",
                 "background-color": "black"
         });
+
         $(".biggercontainer").css({
                 "background-color": "black",
                 "border-left": "2px white solid",
@@ -69,12 +75,22 @@ function darkMode() { // mit jQuery
                 "background-color": "#000000",
                 "border-top": "2px solid white",
                 "border-bottom": "2px solid white"
-        })
+        });
 
         $(".biggercontainer div").css("border", "1px solid #fff");
 
-        $("nav ul li a").hover(function() {
-           $(this).toggleClass("darkModeHover");     
+
+
+        $("nav ul li a").mouseover(function () {
+                $(this).addClass("darkMode_hover");
+                $("nav ul li:eq(3)").click(function () {
+                        $(this).removeClass("darkMode_hover");
+                });
+        });
+
+
+        $("nav ul li a").mouseleave(function () {
+                $(this).removeClass("darkMode_hover");
         });
 
 
@@ -114,9 +130,21 @@ function brightMode() { // mit jQuery
 
         $(".biggercontainer div").css("border", "1px solid #000");
 
-        $("nav a").hover(function() {
-              $(this).toggleClass("brightModeHover");     
+        $("nav ul li a").mouseover(function () {
+                $(this).addClass("brightMode_hover");
+                $("nav ul li:eq(4)").click(function () {
+                        $(this).removeClass("brightMode_hover");                    
+                });
         });
+
+        $("nav ul li a").mouseleave(function () {
+                $(this).removeClass("brightMode_hover");
+        });
+
+
+
+
+
 
 
 
