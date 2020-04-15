@@ -73,6 +73,8 @@ function darkMode() {
 
     $(".biggercontainer div").css("border", "1px solid #fff");
 
+    // Problems: not properly working
+
     $("nav ul li a").mouseover(function () {
         $(this).addClass("darkMode_hover");
         $("nav ul li:eq(3)").click(function () {
@@ -83,6 +85,8 @@ function darkMode() {
     $("nav ul li a").mouseleave(function () {
         $(this).removeClass("darkMode_hover");
     });
+
+    // Problems: not properly working   
 
     localStorage.currentMode = "dark";
     localStorage["currentMode"] = "dark";
@@ -118,6 +122,8 @@ function brightMode() {
 
     $(".biggercontainer div").css("border", "1px solid #000");
 
+
+        // Problems: not properly working   
     $("nav ul li a").mouseover(function () {
         $(this).addClass("brightMode_hover");
         $("nav ul li:eq(4)").click(function () {
@@ -128,6 +134,8 @@ function brightMode() {
     $("nav ul li a").mouseleave(function () {
         $(this).removeClass("brightMode_hover");
     });
+
+    // Problems: not properly working   
 
     localStorage.currentMode = "bright";
     localStorage["currentMode"] = "bright";
