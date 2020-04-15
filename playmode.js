@@ -77,7 +77,7 @@ function checkProgress(){
                 btnSet();  
         }
 
-              // Als Integritätsgrundlage!!
+              // Just for the progress, so it can be less than 0, because that would be invalid!
         if(localStorage.getItem("progress")=="-1"){
                 localStorage.setItem("progress", "0");
         }      
