@@ -61,34 +61,29 @@ function darkMode() {
   $("#unterschrift").attr("src", "img/UnterschriftdarkMode.png");
 
   $("body").css({
-    color: "white",
+    "color": "#f7f7f7",
     "background-color": "black",
   });
 
   $(".biggercontainer").css({
-    "background-color": "black",
+    "background-color": "#111112",
     "border-left": "2px white solid",
     "border-right": "2px white solid",
     "border-bottom": "2px white solid",
   });
+  
   $("ul").css({
-    "background-color": "#000000",
+    "background-color": "#111112",
     "border-top": "2px solid white",
     "border-bottom": "2px solid white",
   });
 
   $(".biggercontainer div").css("border", "1px solid #fff");
 
-  $("nav ul li a").mouseover(function () {
-    $(this).addClass("darkMode_hover");
-    $("nav ul li:eq(3)").click(function () {
-      $(this).removeClass("darkMode_hover");
-    });
-  });
+  $("nav ul li a").removeClass("brightMode");
+  $("nav ul li a").addClass("darkMode");
 
-  $("nav ul li a").mouseleave(function () {
-    $(this).removeClass("darkMode_hover");
-  });
+
 
   localStorage.currentMode = "dark";
   localStorage["currentMode"] = "dark";
@@ -110,18 +105,18 @@ function brightMode() {
   $("#unterschrift").attr("src", "img/Unterschrift.png");
 
   $("body").css({
-    color: "black",
-    "background-color": "white",
+    "color": "black",
+    "background-color": "#f7f7f7",
   });
 
   $("ul").css({
-    "background-color": "#ffffff",
+    "background-color": "#f7f7f7",
     "border-top": "2px solid black",
     "border-bottom": "2px solid black",
   });
 
   $(".biggercontainer").css({
-    "background-color": "white",
+    "background-color": "#f7f7f7",
     "border-left": "2px black solid",
     "border-right": "2px black solid",
     "border-bottom": "2px black solid",
@@ -129,16 +124,9 @@ function brightMode() {
 
   $(".biggercontainer div").css("border", "1px solid #000");
 
-  $("nav ul li a").mouseover(function () {
-    $(this).addClass("brightMode_hover");
-    $("nav ul li:eq(4)").click(function () {
-      $(this).removeClass("brightMode_hover");
-    });
-  });
 
-  $("nav ul li a").mouseleave(function () {
-    $(this).removeClass("brightMode_hover");
-  });
+  $("nav ul li a").removeClass("darkMode");
+  $("nav ul li a").addClass("brightMode");
 
   localStorage.currentMode = "bright";
   localStorage["currentMode"] = "bright";
