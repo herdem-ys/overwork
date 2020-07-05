@@ -49,28 +49,32 @@ function handler() {
 
 function darkMode() {
   // mit jQuery
+  $("html").css("background-color","#111112");
 
   $("#imgi").attr("src", "img/ovrwhite.png");
   $("#img2").attr("src", "img/ovrwhite.png");
   $("#unterschrift").attr("src", "img/UnterschriftdarkMode.png");
 
   $("body").css({
-    "color": "#f7f7f7",
+    "color": "white",
     "background-color": "black",
   });
 
+
+  $(".container a").css("color","white");
+
   $(".biggercontainer").css({
     "background-color": "#111112",
-    "border-left": "2px white solid",
-    "border-right": "2px white solid",
-    "border-bottom": "2px white solid",
+    "box-shadow": "0px 0px 3px white",
   });
   
   $("ul").css({
     "background-color": "#111112",
-    "border-top": "2px solid white",
-    "border-bottom": "2px solid white",
+    "box-shadow": "0px 0px 3px white",
+
   });
+
+
 
   $(".biggercontainer div").css("border", "1px solid #fff");
 
@@ -88,36 +92,48 @@ function darkMode() {
   console.log(
     "Anzeigemodus " + localStorage.getItem("currentMode") + " wurde gesichert!"
   );
-
+  $(".spalte").css("background","#111112");
   // jQuery - Ende
 }
 
 function brightMode() {
   // mit jQuery
+
+  $("html").css("background-color","#f7f7f7");
+
   $("#imgi").attr("src", "img/overworklogo.png");
   $("#img2").attr("src", "img/overworklogo.png");
   $("#unterschrift").attr("src", "img/Unterschrift.png");
 
   $("body").css({
     "color": "black",
-    "background-color": "#f7f7f7",
+    "background-color": "#fafafa",
   });
+
+  $(".spalte").css("background","#f7f7f7");
+
 
   $("ul").css({
     "background-color": "#f7f7f7",
-    "border-top": "2px solid black",
-    "border-bottom": "2px solid black",
+    "box-shadow": "0px 0px 3px #111112",
   });
 
   $(".biggercontainer").css({
     "background-color": "#f7f7f7",
-    "border-left": "2px black solid",
-    "border-right": "2px black solid",
-    "border-bottom": "2px black solid",
+    "box-shadow": "0px 0px 3px #111112",
   });
+
+
+
+
+
+
+
+
 
   $(".biggercontainer div").css("border", "1px solid #000");
 
+  $(".container a").css("color","black");
 
   $("nav ul li a").removeClass("darkMode");
   $("nav ul li a").addClass("brightMode");
