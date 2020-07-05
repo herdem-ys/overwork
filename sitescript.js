@@ -49,7 +49,7 @@ function handler() {
 
 function darkMode() {
   // mit jQuery
-  $("html").css("background-color","#111112");
+  $("html").css("background-color","#000000");
 
   $("#imgi").attr("src", "img/ovrwhite.png");
   $("#img2").attr("src", "img/ovrwhite.png");
