@@ -1,30 +1,27 @@
 "use strict"; //Strengen Modus//
-// test moddather rashed
-
+ 
 var cookiesInfo = localStorage.cookiesInfo;
 
 window.onload = function () {
-    if (localStorage.getItem("currentMode") == "dark") {
-        // Überprüfung des aktuellen Modus
+
+   // Überprüfung des aktuellen Anzeigemodus
+    if (localStorage.getItem("currentMode") == "dark") { // LOCALSTORAGE AUSTAUSCHEN GEGEN DATENBANK WERT
         darkMode();
-    } else if (localStorage.getItem("currentMode") == "bright") {
-        brightMode();
+    } else if (localStorage.getItem("currentMode") == "bright") { // LOCALSTORAGE AUSTAUSCHEN GEGEN DATENBANK WERT
+        brightMode(); 
     }
 
-    if(location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "about.html") {
-        // überprüft ob wir auf der about seite sind!!
-        document.getElementById("wrapper").style.cssText = "width:1500px";
-    }
+    console.info("Aktueller Anzeigemodus " + localStorage.getItem("currentMode")); // LOCALSTORAGE AUSTAUSCHEN GEGEN DATENBANK WERT
 
-    console.info("Aktueller Anzeigemodus " + localStorage.getItem("currentMode"));
 
+    /* COOKIES BENACHRICHTIGUNG */
     if (cookiesInfo != "true") {
         $("html").css("visibility", "hidden");
         alert("This site uses cookies to help you keep track of your progress. If you press OK, we can use your data within our company, for more information, read our terms and conditions.");
+        localStorage.setItem("cookiesInfo", "true"); // LOCALSTORAGE AUSTAUSCHEN GEGEN DATENBANK WERT
         $("html").css("visibility", "visible");
-        localStorage.setItem("cookiesInfo", "true");
     }
-
+    /* COOKIES BENACHRICHTIGUNG */
     console.log(navigator.doNotTrack);
 };
 
@@ -39,12 +36,12 @@ function toggleTheme() {
 function handler() {
     try {
         document.getElementById("form").innerHTML = "<p align='center'>Daten wurden gesichert...<p>";
-        localStorage.setItem("online", "true");
+        localStorage.setItem("online", "true"); // LOCALSTORAGE AUSTAUSCHEN GEGEN DATENBANK WERT
 
         //    var username = document.querySelector('#username').value;  // Just a Prototype for "Network" _____
         //    localStorage.setItem("username", username);                // Doesnt work properly, need php for retrieving User Data and so once
 
-        if (localStorage.getItem("online") == "true") {
+        if (localStorage.getItem("online") == "true") { // LOCALSTORAGE AUSTAUSCHEN GEGEN DATENBANK WERT
             window.open("cpp.html", "_self", "", "");
         }
         return false;
@@ -91,14 +88,14 @@ function darkMode() {
 
   $("#theme").attr("class","fa fa-moon-o");
 
-  localStorage.currentMode = "dark";
-  localStorage["currentMode"] = "dark";
-  localStorage.setItem("currentMode", "dark");
+  localStorage.currentMode = "dark"; // LOCALSTORAGE AUSTAUSCHEN GEGEN DATENBANK WERT
+  localStorage["currentMode"] = "dark"; // LOCALSTORAGE AUSTAUSCHEN GEGEN DATENBANK WERT
+  localStorage.setItem("currentMode", "dark"); // LOCALSTORAGE AUSTAUSCHEN GEGEN DATENBANK WERT
   console.log(
-    "Anzeigemodus umgeändert in: " + localStorage.getItem("currentMode")
+    "Anzeigemodus umgeändert in: " + localStorage.getItem("currentMode") // LOCALSTORAGE AUSTAUSCHEN GEGEN DATENBANK WERT
   );
   console.log(
-    "Anzeigemodus " + localStorage.getItem("currentMode") + " wurde gesichert!"
+    "Anzeigemodus " + localStorage.getItem("currentMode") + " wurde gesichert!" // LOCALSTORAGE AUSTAUSCHEN GEGEN DATENBANK WERT
   );
   $(".spalte").css("background","#111112");
   // jQuery - Ende
@@ -131,14 +128,6 @@ function brightMode() {
     "box-shadow": "0px 0px 3px #111112",
   });
 
-
-
-
-
-
-
-
-
   $(".biggercontainer div").css("border", "1px solid #000");
 
   $(".container a").css("color","black");
@@ -151,11 +140,12 @@ function brightMode() {
   localStorage.currentMode = "bright";
   localStorage["currentMode"] = "bright";
   localStorage.setItem("currentMode", "bright");
+
   console.log(
-    "Anzeigemodus umgeändert in: " + localStorage.getItem("currentMode")
+    "Anzeigemodus umgeändert in: " + localStorage.getItem("currentMode") // LOCALSTORAGE AUSTAUSCHEN GEGEN DATENBANK WERT
   );
   console.log(
-    "Anzeigemodus " + localStorage.getItem("currentMode") + " wurde gesichert!"
+    "Anzeigemodus " + localStorage.getItem("currentMode") + " wurde gesichert!" // LOCALSTORAGE AUSTAUSCHEN GEGEN DATENBANK WERT
   );
 }
 
