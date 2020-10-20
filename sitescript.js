@@ -28,6 +28,14 @@ window.onload = function () {
     console.log(navigator.doNotTrack);
 };
 
+function toggleTheme() {
+  if (localStorage.getItem("currentMode") == "dark") {
+    brightMode();
+  } else if(localStorage.getItem("currentMode") == "bright"){
+    darkMode();
+  }
+}
+
 function handler() {
     try {
         document.getElementById("form").innerHTML = "<p align='center'>Daten wurden gesichert...<p>";
@@ -81,7 +89,7 @@ function darkMode() {
   $("nav ul li a").removeClass("brightMode");
   $("nav ul li a").addClass("darkMode");
 
-
+  $("#theme").attr("class","fa fa-moon-o");
 
   localStorage.currentMode = "dark";
   localStorage["currentMode"] = "dark";
@@ -138,6 +146,8 @@ function brightMode() {
   $("nav ul li a").removeClass("darkMode");
   $("nav ul li a").addClass("brightMode");
 
+  $("#theme").attr("class","fa fa-sun-o");
+
   localStorage.currentMode = "bright";
   localStorage["currentMode"] = "bright";
   localStorage.setItem("currentMode", "bright");
@@ -150,6 +160,13 @@ function brightMode() {
 }
 
 // ** Displaying modes **
+
+
+function setCurrentCopyrightYear() { 
+  var today = new Date()
+  var year = today.getFullYear()
+  $("#year").append(year);
+}
 
 function showPassword() {
     var x = $("#pass");
